@@ -10,12 +10,14 @@ namespace QuadricCalc.Pages.QuadraticEquation
         public string InputEquation { get; set; }
         public bool Calculated { get; private set; }
         public bool IsBelowZero { get; private set; }
+        public bool IsZero { get; private set; }
         public double CoefficientA { get; private set; }
         public double CoefficientB { get; private set; }
         public double CoefficientC { get; private set; }
         public double Root1 { get; private set; }
         public double Root2 { get; private set; }
         public string DiscriminantMessage { get; private set; }
+        public string EqualMessage { get; private set; }
 
         public void OnGet()
         {
@@ -48,14 +50,16 @@ namespace QuadricCalc.Pages.QuadraticEquation
 
                         if (discriminant > 0)
                         {
+                            DiscriminantMessage = $"The discriminant is {discriminant}";
                             Root1 = (-CoefficientB + Math.Sqrt(discriminant)) / (2 * CoefficientA);
                             Root2 = (-CoefficientB - Math.Sqrt(discriminant)) / (2 * CoefficientA);
                             Calculated = true;
                         }
                         else if (discriminant == 0)
                         {
+                            EqualMessage = $"The discriminant is {0} so you have one root.";
                             Root1 = Root2 = -CoefficientB / (2 * CoefficientA);
-                            Calculated = true;
+                            IsZero = true;
                         }
                         else if (discriminant < 0)
                         {

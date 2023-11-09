@@ -10,4 +10,8 @@
     <Folder Include="Pages\Quadric\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\CustomCss\MyCssTheme.css" />
+  </ItemGroup>
+
 </Project>

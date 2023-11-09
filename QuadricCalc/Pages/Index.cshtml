@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<h1>Quadratic Equation Calculator</h1>
+<h1 class="text-center pt-3">Quadratic Equation Calculator</h1>
 
 <form method="post">
-    <div class="form-group">
+    <div class="form-group pt-3">
         <label for="InputEquation">Enter the quadratic equation (e.g., 5x2 + 6x + 1 = 0):</label>
         <input type="text" class="form-control" id="InputEquation" name="InputEquation" asp-for="InputEquation" required>
     </div>
@@ -43,6 +43,7 @@
             </div>
         </div>
     </div>
+    <h2 class="text-danger" style="font-size: 1.25rem">@Model.DiscriminantMessage</h2>
     <p class="text-primary" style="font-size: 1.25rem">The roots of the equation are:</p>
     <ul>
         <li class="text-success" style="font-size: 1.25rem">Root 1: @string.Format("{0:0.00}", Model.Root1)</li>
@@ -81,6 +82,43 @@
     </div>
     <li class="text-danger bg-light p-2 rounded" style="font-size: 1.25rem">@Model.DiscriminantMessage</li>
 }
+@if (Model.IsZero)
+{
+    <h2 class="h3 mt-4 text-primary">Result</h2>
+    <p class="lead">Coefficients:</p>
+    <div class="row mb-4">
+        <div class="col-sm-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">A:</h5>
+                    <p class="card-text coefficient-value text-danger" style="font-size: 1.5rem">@Model.CoefficientA</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">B:</h5>
+                    <p class="card-text coefficient-value text-danger" style="font-size: 1.5rem">@Model.CoefficientB</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">C:</h5>
+                    <p class="card-text coefficient-value text-danger" style="font-size: 1.5rem">@Model.CoefficientC</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-primary" style="font-size: 1.25rem">The roots of the equation are:</p>
+    <ul>
+        <h2 class="text-danger bg-light p-2 rounded" style="font-size: 1.25rem">@Model.EqualMessage</h2>
+        <li class="text-success" style="font-size: 1.25rem">Root: @string.Format("{0:0.00}", Model.Root1)</li>
+    </ul>
+}
+
 
 <style>
     .coefficient-value {
