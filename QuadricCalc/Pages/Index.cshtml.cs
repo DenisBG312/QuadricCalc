@@ -9,6 +9,7 @@ namespace QuadricCalc.Pages.QuadraticEquation
         [BindProperty]
         public string InputEquation { get; set; }
         public bool Calculated { get; private set; }
+        public bool IsBelowZero { get; private set; }
         public double CoefficientA { get; private set; }
         public double CoefficientB { get; private set; }
         public double CoefficientC { get; private set; }
@@ -58,8 +59,8 @@ namespace QuadricCalc.Pages.QuadraticEquation
                         }
                         else if (discriminant < 0)
                         {
-                            DiscriminantMessage = "The discriminant is a negative number!";
-                            Calculated = true;
+                            DiscriminantMessage = $"The discriminant is a negative number! -> {discriminant}";
+                            IsBelowZero = true;
                         }
                     }
                 }
