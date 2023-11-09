@@ -1,0 +1,18 @@
+﻿@model QuadricCalc.Models.QuadraticCoefficients
+
+<h1>Result</h1>
+
+<p>For the quadratic equation with coefficients:</p>
+<ul>
+    <li>A: @Model.A</li>
+    <li>B: @Model.B</li>
+    <li>C: @Model.C</li>
+</ul>
+
+<p>The roots of the equation are:</p>
+<ul>
+    <li>Root 1: @ViewData["Root1"]</li>
+    <li>Root 2: @ViewData["Root2"]</li>
+</ul>
+
+<a asp-controller="Quadric" asp-action="Index" class="btn btn-primary">Calculate Another</a>
