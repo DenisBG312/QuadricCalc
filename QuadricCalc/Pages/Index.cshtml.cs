@@ -33,19 +33,32 @@ namespace QuadricCalc.Pages.QuadraticEquation
                         CoefficientB = double.Parse(equationParts[2].Replace("x", "").Trim());
                         CoefficientC = double.Parse(equationParts[4].Trim());
 
+                        if (equationParts[1].Contains("-"))
+                        {
+                            CoefficientB = -CoefficientB;
+                        }
+                        if (equationParts[3].Contains("-"))
+                        {
+                            CoefficientC = -CoefficientC;
+                        }
+
                         double discriminant = CoefficientB * CoefficientB - 4 * CoefficientA * CoefficientC;
 
                         if (discriminant > 0)
                         {
                             Root1 = (-CoefficientB + Math.Sqrt(discriminant)) / (2 * CoefficientA);
                             Root2 = (-CoefficientB - Math.Sqrt(discriminant)) / (2 * CoefficientA);
+                            Calculated = true;
                         }
                         else if (discriminant == 0)
                         {
                             Root1 = Root2 = -CoefficientB / (2 * CoefficientA);
+                            Calculated = true;
                         }
-
-                        Calculated = true;
+                        else if (discriminant < 0)
+                        {
+                            Console.WriteLine("Discriminant is negative < 0");
+                        }
                     }
                 }
                 catch (FormatException)
