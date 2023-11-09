@@ -14,6 +14,7 @@ namespace QuadricCalc.Pages.QuadraticEquation
         public double CoefficientC { get; private set; }
         public double Root1 { get; private set; }
         public double Root2 { get; private set; }
+        public string DiscriminantMessage { get; private set; }
 
         public void OnGet()
         {
@@ -57,7 +58,8 @@ namespace QuadricCalc.Pages.QuadraticEquation
                         }
                         else if (discriminant < 0)
                         {
-                            Console.WriteLine("Discriminant is negative < 0");
+                            DiscriminantMessage = "The discriminant is a negative number!";
+                            Calculated = true;
                         }
                     }
                 }
