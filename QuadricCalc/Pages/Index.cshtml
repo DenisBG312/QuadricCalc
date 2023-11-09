@@ -7,10 +7,10 @@
 
 <form method="post">
     <div class="form-group pt-3">
-        <label for="InputEquation">Enter the quadratic equation (e.g., 5x2 + 6x + 1 = 0):</label>
-        <input type="text" class="form-control" id="InputEquation" name="InputEquation" asp-for="InputEquation" required>
+        <h3><label for="InputEquation">Enter the quadratic equation (e.g., 5x^2 + 6x + 1 = 0):</label></h3>
+        <input type="text" class="form-control form-control-lg" id="InputEquation" name="InputEquation" asp-for="InputEquation" required>
     </div>
-    <button type="submit" class="btn btn-primary mt-4">Calculate</button>
+    <button type="submit" class="btn btn-danger btn-lg mt-4">Calculate</button>
 </form>
 
 @if (Model.Calculated)
